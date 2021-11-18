@@ -110,6 +110,19 @@ public class ProdutoDao {
             }
     }
 
+    public void deletaProduto(Produto produto) {
+            String sql = "DELETE FROM produtos WHERE idProduto = ?";
+
+        try {
+            PreparedStatement stmt = conection.prepareStatement(sql);
+            stmt.setInt(1, produto.getId());
+            stmt.execute();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }
 

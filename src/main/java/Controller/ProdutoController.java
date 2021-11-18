@@ -32,4 +32,8 @@ public class ProdutoController {
         prodDao.editarProduto(produto);
     }
 
+    public void deletaProduto(Produto produto) {
+        prodDao.deletaProduto(produto);
+    }
+
 }

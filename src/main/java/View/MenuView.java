@@ -59,7 +59,7 @@ public class MenuView {
                     break;
 
                 case 4:
-//                    produtoView.selecionaProdutoById();
+                    produtoView.deletarProduto(produtoView.selecionaProdutoById());
                     System.out.println("5 - Voltar");
                     op = leitor.nextInt();
                     break;

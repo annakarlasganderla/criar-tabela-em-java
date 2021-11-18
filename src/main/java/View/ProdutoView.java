@@ -34,7 +34,7 @@ public class ProdutoView {
     public Produto selecionaProdutoById() throws SQLException {
         this.mostrarProdutos();
 
-        System.out.println("Selecione o produto que deseja editar: ");
+        System.out.println("Selecione o produto: ");
         int produtoSelecionado = leitor.nextInt();
 
         Produto produto  = produtoController.selecionaPeloId(produtoSelecionado);
@@ -76,9 +76,24 @@ public class ProdutoView {
 
         System.out.println("Produto editado com sucesso!");
         produtoController.editarProduto(produto);
-
     }
 
+    public void deletarProduto(Produto produto) {
 
+        int op;
 
+        System.out.println("Tem certeza que deseja deletar o produto? 1 - Sim | 0 - Não");
+        op = leitor.nextInt();
+
+        switch (op) {
+            case 1:
+                produtoController.deletaProduto(produto);
+                break;
+
+                default:
+                    System.out.println("Opção invalida");
+            }
+
+        System.out.println("Produto deletado com sucesso!");
+    }
 }
