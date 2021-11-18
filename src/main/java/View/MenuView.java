@@ -53,13 +53,13 @@ public class MenuView {
                     break;
 
                 case 3:
-                   // produtoView.editaProduto();
+                    produtoView.editarProduto(produtoView.selecionaProdutoById());
                     System.out.println("5 - Voltar");
                     op = leitor.nextInt();
                     break;
 
                 case 4:
-                   // produtoView.deletaProduto();
+//                    produtoView.selecionaProdutoById();
                     System.out.println("5 - Voltar");
                     op = leitor.nextInt();
                     break;

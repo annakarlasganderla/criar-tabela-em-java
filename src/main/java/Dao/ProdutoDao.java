@@ -67,6 +67,49 @@ public class ProdutoDao {
         return listaDeProdutos;
     }
 
+    public Produto selectProdutoById(int id) {
+        String sql = "SELECT * FROM produtos WHERE idProduto = ?";
+
+        try {
+
+            PreparedStatement stmt = conection.prepareStatement(sql);
+            stmt.setInt(1,id);
+
+            ResultSet resultSet = stmt.executeQuery(); // executa a busca no banco
+
+            while(resultSet.next()) {
+                Produto produto = new Produto();
+                produto.setId(resultSet.getInt("idProduto"));
+                produto.setNome(resultSet.getString("nome"));
+                produto.setPrice(resultSet.getDouble("preco"));
+
+                return produto;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return null;
+    }
+
+    public void editarProduto(Produto produto) {
+            String sql = "UPDATE produtos SET nome = ?, preco = ? WHERE idProduto = ?";
+
+            try {
+                PreparedStatement stmt = conection.prepareStatement(sql);
+
+                stmt.setString(1, produto.getNome());
+                stmt.setDouble(2, produto.getPrice());
+                stmt.setInt(3, produto.getId());
+
+                stmt.execute();
+
+            } catch (SQLException e){
+                throw new RuntimeException(e);
+            }
+    }
+
 
 }
 

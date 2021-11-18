@@ -13,7 +13,6 @@ public class ProdutoController {
     ProdutoDao prodDao = new ProdutoDao();
 
     public void criaProduto(Produto produto) throws IOException, SQLException {
-
         prodDao.criaTabelaProdutos(produto);
     }
 
@@ -23,6 +22,14 @@ public class ProdutoController {
 
     public List<Produto> listarProdutos() throws SQLException {
        return prodDao.listarProdutos();
+    }
+
+    public Produto selecionaPeloId(int id){
+        return prodDao.selectProdutoById(id);
+    }
+
+    public void editarProduto(Produto produto){
+        prodDao.editarProduto(produto);
     }
 
 }

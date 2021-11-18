@@ -2,11 +2,11 @@ package Model;
 
 public class Produto {
 
-    private long id;
+    private int id;
     private String nome;
     private Double price;
 
-    public Produto(long id, String nome, Double price) {
+    public Produto(int id, String nome, Double price) {
         this.id = id;
         this.nome = nome;
         this.price = price;
@@ -15,11 +15,11 @@ public class Produto {
     public Produto() {
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -41,6 +41,10 @@ public class Produto {
 
     @Override
     public String toString() {
-        return id + ";" +  nome + ";" + price;
+        return " Produto{" +
+                " id -> " + id + " | " +
+                " nome -> '" + nome + " | " +
+                " price -> " + price +
+                '}' + "\n";
     }
 }
